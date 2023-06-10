@@ -2,20 +2,28 @@ package com.clinicals.api.model;
 
 import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="clinicaldata")
+@JsonIgnoreProperties({"patient"})
 public class ClinicalData {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String componentName;
 	private String componentValue;
-	private Timestamp mesureDateTime;
+	private Timestamp measuredDateTime;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="patient_id",nullable=false)
 	private Patient patient;
@@ -45,10 +53,10 @@ public class ClinicalData {
 	}
 
 	public Timestamp getMesureDateTime() {
-		return mesureDateTime;
+		return measuredDateTime;
 	}
 
-	public void setMesureDateTime(Timestamp mesureDateTime) {
-		this.mesureDateTime = mesureDateTime;
+	public void setMesureDateTime(Timestamp measuredDateTime) {
+		this.measuredDateTime = measuredDateTime;
 	}
 }
