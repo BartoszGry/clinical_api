@@ -14,18 +14,18 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="clinicaldata")
-@JsonIgnoreProperties({"patient"})
+@Table(name = "clinicaldata")
+@JsonIgnoreProperties({ "patient" })
 public class ClinicalData {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String componentName;
 	private String componentValue;
 	private Timestamp measuredDateTime;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="patient_id",nullable=false)
+	@JoinColumn(name = "patient_id", nullable = false)
 	private Patient patient;
 
 	public int getId() {
@@ -58,5 +58,13 @@ public class ClinicalData {
 
 	public void setMesureDateTime(Timestamp measuredDateTime) {
 		this.measuredDateTime = measuredDateTime;
+	}
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 }
