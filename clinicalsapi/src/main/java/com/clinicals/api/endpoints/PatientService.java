@@ -3,6 +3,7 @@ package com.clinicals.api.endpoints;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.cxf.rs.security.cors.CrossOriginResourceSharing;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.clinicals.api.model.ClinicalData;
@@ -19,6 +20,7 @@ import jakarta.ws.rs.Produces;
 @Consumes("application/json")
 @Produces("application/json")
 @Path("/api")
+@CrossOriginResourceSharing(allowAllOrigins = true)
 public class PatientService {
 
 	@Autowired
