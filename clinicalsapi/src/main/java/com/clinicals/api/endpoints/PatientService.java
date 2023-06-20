@@ -41,6 +41,7 @@ public class PatientService {
 	@Path("/patients")
 	@GET
 	public List<Patient> getPatients() {
+		System.out.println("get request");
 		return repo.findAll();
 	}
 
