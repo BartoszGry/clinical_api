@@ -19,13 +19,14 @@ import jakarta.ws.rs.Produces;
 
 @Consumes("application/json")
 @Produces("application/json")
-@Path("/api")
 @CrossOriginResourceSharing(allowAllOrigins = true)
+@Path("/api")
 public class PatientService {
 
 	@Autowired
 	PatientRepo repo;
 
+	
 	@Path("/patients")
 	@POST
 	public Patient createPatient(Patient patient) {

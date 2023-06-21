@@ -1,5 +1,6 @@
 package com.clinicals.api.endpoints;
 
+
 import org.apache.cxf.rs.security.cors.CrossOriginResourceSharing;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,8 +18,8 @@ import jakarta.ws.rs.Produces;
 
 @Consumes("application/json")
 @Produces("application/json")
-@Path("/api")
 @CrossOriginResourceSharing(allowAllOrigins = true)
+@Path("/api")
 public class ClinicalDataService {
 
 	@Autowired
